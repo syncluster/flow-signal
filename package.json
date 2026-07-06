@@ -1,0 +1,28 @@
+{
+  "name": "flow-signal",
+  "version": "1.0.0",
+  "description": "flow signal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syncluster/flow-signal.git"
+  },
+  "keywords": [
+    "universal",
+    "domain",
+    "driven",
+    "design",
+    "signaling"
+  ],
+  "author": "eduardo@syncluster.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/syncluster/flow-signal/issues"
+  },
+  "homepage": "https://github.com/syncluster/flow-signal#readme",
+  "dependencies": {
+  }
+}
