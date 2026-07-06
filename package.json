@@ -1,8 +1,13 @@
 {
   "name": "flow-signal",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.js",
+  "exports": {
+	  ".": "./index.js"
+  },
   "description": "flow signal",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
