@@ -72,7 +72,8 @@ vm.remap = remap;
 vm.loadcache = loadcache; 
 vm.loadoption = loadoption; 
 vm.loadrules = loadrules; 
-vm.resolve = resolve; 
+vm.resolve = resolve;
+vm.run = run; 
 async function broadcast(eventName, cb) { 
 if (typeof cb !== "function") return true; 
 return cb(eventName, vm.lifecycle); 
