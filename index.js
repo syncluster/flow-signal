@@ -352,7 +352,8 @@ await vm.broadcast( "lifecycle_change", broadcastcb );
 break; 
 } 
 default: { 
-switchcb( vm.lifecycle, switchEvent ); 
+await switchcb( vm.lifecycle, switchEvent );
+await vm.broadcast( "lifecycle_change", broadcastcb );  
 break; 
 } 
 } 
