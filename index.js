@@ -359,5 +359,6 @@ break;
 } 
 vm.case.lifecycle = vm.lifecycle; 
 vm.case.name = switchEvent; 
-} 
+}
+return vm; 
 }
