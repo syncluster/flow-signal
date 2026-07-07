@@ -170,7 +170,66 @@ if ( current === null || typeof current !== "object" ) {
 return undefined; } current = current[part]; 
 } 
 return current; 
-} 
+}
+
+async function run(
+lifecycle,
+switchcb,
+panelcb,
+broadcastcb,
+verbcb,
+cachecb,
+rulescb
+) {
+
+const recursiveBroadcast = async (eventName, lifecycle) => {
+
+if (typeof broadcastcb === "function") {
+await broadcastcb(eventName, lifecycle);
+}
+
+if (eventName === "lifecycle_change") {
+
+lifecycle.prevEvent = lifecycle.postEvent;
+lifecycle.postEvent = "";
+
+const itemEvents = first(
+filter(
+lifecycle.items.events_order,
+{ rel: lifecycle.option }
+)
+).items;
+
+if (itemEvents.includes(lifecycle.prevEvent)) {
+
+await execute(
+lifecycle,
+switchcb,
+panelcb,
+recursiveBroadcast,
+verbcb,
+cachecb,
+rulescb
+);
+
+}
+
+}
+
+};
+
+await execute(
+lifecycle,
+switchcb,
+panelcb,
+recursiveBroadcast,
+verbcb,
+cachecb,
+rulescb
+);
+
+}
+ 
 async function execute( lifecycle, switchcb, panelcb, broadcastcb, verbcb, cachecb, rulescb ) { 
 if ( isEmpty(vm.events_order) && isEmpty(filter(vm.lifecycle.items.events_order, { rel: vm.lifecycle.option })) ) { 
 await vm.loadrules(rulescb); 
